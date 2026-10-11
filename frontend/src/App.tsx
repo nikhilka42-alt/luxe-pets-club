@@ -73,7 +73,7 @@ const routes = [
 ]
 
 function Brand() {
-  return <a className="brand" href="/" aria-label="Luxe Pets Club home"><img src="/images/luxe-logo.png" alt="" /><span className="brand-name">LUXE PETS <i>CLUB</i></span></a>
+  return <a className="brand" href="/" aria-label="Luxe Pets Club home"><img src="/images/LUXE OG LOGO.png" alt="" /><span className="brand-name">LUXE PETS <i>CLUB</i></span></a>
 }
 
 function Header({ current }: { current: string }) {
@@ -122,7 +122,7 @@ function HomePage() {
   return <>
     <main>
       <section className="home-hero page-wrap">
-        <div className="hero-copy"><Eyebrow icon="paw">A little more love, every day</Eyebrow><h1>Where Every Pet<br /><em>Feels at Home.</em></h1><p>Premium boarding, grooming, swimming and playtime designed around the comfort, safety and happiness of your pets.</p><div className="hero-actions"><a className="button button-primary" href="/contact#enquiry">Book a Stay <Icon name="arrow" size={16} /></a><a className="button button-quiet" href="/services">Explore Services <Icon name="arrow" size={16} /></a></div><div className="hero-note"><span className="note-avatars"><i>✦</i><i>♡</i><i>⌂</i></span><span>Thoughtful care, made for them</span></div></div>
+        <div className="hero-copy"><Eyebrow icon="paw">A little more love, every day</Eyebrow><h1>Where Every Pet<br /><em className="not-italic">Feels at Home.</em></h1><p>Premium boarding, grooming, swimming and playtime designed around the comfort, safety and happiness of your pets.</p><div className="hero-actions"><a className="button button-primary" href="/contact#enquiry">Book a Stay <Icon name="arrow" size={16} /></a><a className="button button-quiet" href="/services">Explore Services <Icon name="arrow" size={16} /></a></div><div className="hero-note"><span className="note-avatars"><i>✦</i><i>♡</i><i>⌂</i></span><span>Thoughtful care, made for them</span></div></div>
         <div className="hero-visual"><img className="hero-photo" src={images.hero} alt="A happy dog relaxing in a bright, spacious pet-care environment" fetchPriority="high" /><div className="hero-photo-shade" /><div className="hero-location"><span className="location-dot" /> Illustrative pet-care photography</div><div className="hero-badge badge-top"><span className="badge-icon"><Icon name="heart" size={18} /></span><span><strong>Safe &amp; Caring</strong><small>Made to feel like home</small></span></div><div className="hero-badge badge-bottom"><span className="badge-icon"><Icon name="sparkle" size={18} /></span><span><strong>Fully Air-Conditioned</strong><small>A clean, comfortable stay</small></span></div><div className="hero-tag"><Icon name="paw" size={15} /> Pet-Friendly Space</div></div>
       </section>
 
@@ -143,7 +143,18 @@ const reviews = [
 ]
 
 function ReviewsSection() {
-  return <section className="reviews-section section-block page-wrap"><SectionHeading eyebrow="Kind words from pet parents" title={<>Loved by Pets.<br /><em>Trusted by Pet Parents.</em></>} /><div className="review-overview"><div className="rating-score"><strong>5.0</strong><span className="rating-stars" aria-label="5 out of 5 stars">★★★★★</span><small>4 Google Reviews</small></div></div><div className="review-grid">{reviews.map((review, index) => <Reveal key={review.name} delay={index * 80}><article className="review-card"><Icon name="quote" size={22} /><p>“{review.text}”</p><div className="review-author"><span className="author-mark">{review.name.split(' ').map((part) => part[0]).join('').slice(0, 2)}</span><strong>{review.name}</strong></div></article></Reveal>)}</div></section>
+  return (
+    <section className="reviews-section page-wrap">
+      <div className="reviews-grid">
+        {reviews.map((review) => (
+          <article className="review-card" key={review.name}>
+            <h3>{review.name}</h3>
+            <p>{review.text}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
 }
 
 function FinalCta() {
@@ -166,12 +177,12 @@ function ServicesPage() {
 }
 
 const gallery = [
-  { label: 'Boarding area', image: images.boarding, alt: 'A calm, comfortable pet boarding room', className: 'gallery-tall' },
-  { label: 'Dogs playing', image: images.play, alt: 'Two dogs playing together in a spacious indoor lounge', className: 'gallery-wide' },
-  { label: 'Grooming', image: images.grooming, alt: 'A groomer tending to a calm dog', className: '' },
-  { label: 'Swimming', image: images.swimming, alt: 'A dog swimming in a clean pet pool', className: '' },
-  { label: 'Dog park', image: images.park, alt: 'Dogs playing together in a green outdoor area', className: 'gallery-wide' },
-  { label: 'Indoor spaces', image: images.hero, alt: 'Bright, welcoming pet-care interior', className: 'gallery-tall' },
+ { label: 'Reception Area', image: '/images/Reception area.jpeg', alt: 'A warm and welcoming pet club reception area', className: 'gallery-tall' },
+  { label: 'Parking Area', image: '/images/entrance.jpeg', alt: 'Pet club parking area', className: 'gallery-wide' },
+ { label: 'Boarding Area', image: '/images/boarding area.jpeg', alt: 'Comfortable pet boarding area', className: '' },
+ { label: 'Grooming and Bathing Area', image: '/images/Grooming and Bathing Area.jpeg', alt: 'A dog enjoying a bath at the pet care salon', className: '' },
+  { label: 'Outdoor Area', image: '/images/evening door play.jpeg', alt: 'Dogs playing together in a green outdoor area', className: 'gallery-wide' },
+  { label: 'Indoor Area', image: '/images/indoor area.jpeg', alt: 'Bright, welcoming pet-care interior', className: 'gallery-small' },
 ]
 
 function SpacePage() {
@@ -191,7 +202,7 @@ function AboutPage() {
     { title: 'Safety', copy: 'A thoughtful space for peace of mind.', icon: 'leaf' as const },
     { title: 'Play', copy: 'Room for joyful moments.', icon: 'tree' as const },
   ]
-  return <main className="subpage about-page page-wrap"><section className="about-hero"><Reveal className="about-copy"><Eyebrow icon="paw">A club made for pets</Eyebrow><h1>Built Around<br /><em>Their Happiness.</em></h1><p>At Luxe Pets Club, we believe pets deserve more than just a place to stay. We create a safe, comfortable and welcoming environment where pets can relax, play and receive the care they deserve.</p><a className="button button-primary" href="/contact#enquiry">Come say hello <Icon name="arrow" size={16} /></a></Reveal><Reveal className="about-image"><img src={images.play} alt="Dogs sharing a happy moment in a bright pet-friendly space" loading="lazy" /><span className="about-image-note"><Icon name="heart" size={17} /> Their comfort comes first</span></Reveal></section><section className="approach-section"><SectionHeading eyebrow="Our approach" title={<>Thoughtful care, <em>in every detail.</em></>} /><div className="approach-grid">{approach.map((item, index) => <Reveal key={item.title} delay={index * 60}><article className="approach-card"><span className="approach-icon"><Icon name={item.icon} size={21} /></span><span className="approach-index">0{index + 1}</span><h3>{item.title}</h3><p>{item.copy}</p></article></Reveal>)}</div></section><section className="business-card"><div className="business-card-top"><div><Eyebrow icon="leaf">Come visit us</Eyebrow><h2>A little place for<br /><em>big tail wags.</em></h2></div><span className="business-mark"><img src="/images/luxe-logo.png" alt="" /></span></div><div className="business-info-grid"><div className="business-info"><span className="info-icon"><Icon name="paw" /></span><span><strong>LUXE PETS CLUB</strong><small>Pet Boarding · Grooming · Swimming · Dog Park</small></span></div><div className="business-info"><span className="info-icon"><Icon name="pin" /></span><span><strong>Find us</strong><small>{ADDRESS}</small><a className="text-link" href={MAP_SEARCH} target="_blank" rel="noreferrer">Get Directions <Icon name="arrow" size={15} /></a></span></div><div className="business-info"><span className="info-icon"><Icon name="phone" /></span><span><strong>Call us</strong><a href={`tel:${PHONE_LINK}`}>{PHONE}</a></span></div><div className="business-info"><span className="info-icon"><Icon name="clock" /></span><span><strong>Opening</strong><small>Open from 1st October 2026</small><small>Open · closes at 7:00 PM</small></span></div></div></section></main>
+  return <main className="subpage about-page page-wrap"><section className="about-hero"><Reveal className="about-copy"><Eyebrow icon="paw">A club made for pets</Eyebrow><h1>Built Around<br /><em>Their Happiness.</em></h1><p>At Luxe Pets Club, we believe pets deserve more than just a place to stay. We create a safe, comfortable and welcoming environment where pets can relax, play and receive the care they deserve.</p><a className="button button-primary" href="/contact#enquiry">Come say hello <Icon name="arrow" size={16} /></a></Reveal><Reveal className="about-image"><img src={images.play} alt="Dogs sharing a happy moment in a bright pet-friendly space" loading="lazy" /><span className="about-image-note"><Icon name="heart" size={17} /> Their comfort comes first</span></Reveal></section><section className="approach-section"><SectionHeading eyebrow="Our approach" title={<>Thoughtful care, <em>in every detail.</em></>} /><div className="approach-grid">{approach.map((item, index) => <Reveal key={item.title} delay={index * 60}><article className="approach-card"><span className="approach-icon"><Icon name={item.icon} size={21} /></span><span className="approach-index">0{index + 1}</span><h3>{item.title}</h3><p>{item.copy}</p></article></Reveal>)}</div></section><section className="business-card"><div className="business-card-top"><div><Eyebrow icon="leaf">Come visit us</Eyebrow><h2>A little place for<br /><em>big tail wags.</em></h2></div><span className="business-mark"><img src="/images/LUXE OG LOGO.png" alt="" /></span></div><div className="business-info-grid"><div className="business-info"><span className="info-icon"><Icon name="paw" /></span><span><strong>LUXE PETS CLUB</strong><small>Pet Boarding · Grooming · Swimming · Dog Park</small></span></div><div className="business-info"><span className="info-icon"><Icon name="pin" /></span><span><strong>Find us</strong><small>{ADDRESS}</small><a className="text-link" href={MAP_SEARCH} target="_blank" rel="noreferrer">Get Directions <Icon name="arrow" size={15} /></a></span></div><div className="business-info"><span className="info-icon"><Icon name="phone" /></span><span><strong>Call us</strong><a href={`tel:${PHONE_LINK}`}>{PHONE}</a></span></div><div className="business-info"><span className="info-icon"><Icon name="clock" /></span><span><strong>Opening</strong><small>Open from 1st October 2026</small><small>Open · closes at 7:00 PM</small></span></div></div></section></main>
 }
 
 function ContactPage() {
