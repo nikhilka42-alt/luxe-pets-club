@@ -130,7 +130,7 @@ function HomePage() {
 
       <section className="why-section"><div className="why-inner page-wrap"><Reveal className="why-image"><img src={images.boarding} alt="Clean and comfortable indoor space for pets" loading="lazy" /><div className="image-caption"><Icon name="leaf" size={16} /><span>Room to relax. Space to be themselves.</span></div><div className="image-index">01 <i>—</i> A calm, cared-for stay</div></Reveal><Reveal className="why-copy"><Eyebrow icon="heart">The Luxe difference</Eyebrow><h2>Care That Goes<br />Beyond <em>the Stay.</em></h2><p>Comfort is in the little things: a clean space, a kind hello, and room for every pet to settle in at their own pace.</p><div className="benefit-list"><div><span className="benefit-icon"><Icon name="heart" /></span><span><strong>Experienced Care</strong><small>Attentive support for every stay.</small></span></div><div><span className="benefit-icon"><Icon name="sparkle" /></span><span><strong>Clean &amp; Comfortable</strong><small>A thoughtfully maintained space.</small></span></div><div><span className="benefit-icon"><Icon name="tree" /></span><span><strong>Spacious Environment</strong><small>Spacious surroundings for pets to play.</small></span></div><div><span className="benefit-icon"><Icon name="paw" /></span><span><strong>Pet-Friendly Atmosphere</strong><small>A welcoming place to feel at home.</small></span></div></div><a className="text-link" href="/about">Get to know us <Icon name="arrow" size={16} /></a></Reveal></div></section>
 
-      <ReviewsSection />
+      
       <FinalCta />
     </main>
   </>
