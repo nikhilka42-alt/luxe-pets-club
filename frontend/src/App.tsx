@@ -136,11 +136,7 @@ function HomePage() {
   </>
 }
 
-const reviews = [
-  { name: 'Aarthi Libert', text: 'Really happy with the care and attention they give to the dogs. The staff are kind, caring, and genuinely love what they do. Our dog was happy and well taken care of throughout the stay. Highly recommended for anyone looking for a safe and trustworthy boarding place!' },
-  { name: 'Gobinath Chinnu', text: 'We recently visited Luxe Pets Club with our pets and were really impressed with the place. The ambience is excellent — very spacious, clean, well maintained and fully air-conditioned.' },
-  { name: 'Ashwin AG', text: 'Reasonable price.' },
-]
+
 
 
 
