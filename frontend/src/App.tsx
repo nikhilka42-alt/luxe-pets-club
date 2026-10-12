@@ -142,20 +142,7 @@ const reviews = [
   { name: 'Ashwin AG', text: 'Reasonable price.' },
 ]
 
-function ReviewsSection() {
-  return (
-    <section className="reviews-section page-wrap">
-      <div className="reviews-grid">
-        {reviews.map((review) => (
-          <article className="review-card" key={review.name}>
-            <h3>{review.name}</h3>
-            <p>{review.text}</p>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
-}
+
 
 function FinalCta() {
   return <section className="final-cta page-wrap"><img src={images.play} alt="Dogs enjoying playtime in a bright, spacious pet-friendly lounge" loading="lazy" /><div className="final-cta-shade" /><div className="final-cta-content"><Eyebrow icon="paw">A happier kind of stay</Eyebrow><h2>Your Pet Deserves<br /><em>the Best.</em></h2><p>Give them a place to stay, play, relax and feel at home.</p><a className="button button-light" href="/contact#enquiry">Book a Stay <Icon name="arrow" size={16} /></a></div></section>
